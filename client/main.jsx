@@ -6,6 +6,7 @@ import { render } from 'react-dom';
 import { renderRoutes } from '../imports/startup/client/routes.jsx'
 
 // render routes after DOM has loaded
+// renderizas las rutas, que estan en el div = target
 Meteor.startup(() => {
   render(renderRoutes(), document.getElementById('target'));
 });

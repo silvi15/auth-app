@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { withHistory, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-//import component
 import Header from '../component/Header';
 import Logo from '../component/Logo';
-//import ProfileBar from '../component/ProfileBar';
 
-//import ProjectList from '../component/ProjectList';
-//<ProjectList projects={this.state.projects} />
-export default class MainPage extends Component {
+export default class NotificationPage extends Component {
  constructor(props){
-   super(props);  
+   super(props);
+   this.state = {
+     username: ''
+   };
  }
 
  render(){
@@ -21,19 +20,17 @@ export default class MainPage extends Component {
    return (
      <div>
        <Logo />
-       
        <div className="container">
          <Header />
          <h1 className="text-center">
-           { loggedIn ? 'Welcome '+currentUser.username : '' }
+           Notification { loggedIn ? 'Welcome '+currentUser.username : '' }
          </h1>
-         </div>
-          
-     </div>  
+       </div>
+     </div>
    );
  }
 }
 
-MainPage.propTypes = {
+NotificationPage.propTypes = {
  username: React.PropTypes.string
 }

@@ -19,13 +19,13 @@ export default class AppContainer extends Component {
   /* llamamos a este metodo cdo se crea un componente y se inserta en el DOM */
   componentWillMount(){
     if (!this.state.isAuthenticated) {
-      this.props.history.push('/login');
+      this.props.history.push('/landingPage');
     }
   }
 
   componentDidUpdate(prevProps, prevState){
     if (!this.state.isAuthenticated) {
-      this.props.history.push('/login');
+      this.props.history.push('/landingPage');
     }
   }
 
@@ -35,15 +35,13 @@ export default class AppContainer extends Component {
         if (err) {
             console.log( err.reason );
         } else {
-            this.props.history.push('/login');
+            this.props.history.push('/landingPage');
         }
     });
   }
-
-  render(){
-    return (
-      <div>
-        <nav className="navbar navbar-default navbar-static-top">
+/**
+ * 
+ * <nav className="navbar navbar-default navbar-static-top">
           <div className="container">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Auth App</a>
@@ -57,6 +55,11 @@ export default class AppContainer extends Component {
             </div>
           </div>
         </nav>
+ */
+  render(){
+    return (
+      <div>
+        
         <MainContainer />
       </div>
     );
