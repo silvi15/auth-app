@@ -18,7 +18,6 @@ export default class Logo extends React.Component {
                                                 </div>
                                                 <div className="collapse navbar-collapse" id="myNavbar">
                                                         <ul className="nav navbar-nav">
-                                                                <li className="active"><a href="/">Landing Page</a></li>
                                                                 <li className="active"><a href="/register">Register</a></li>
                                                                 <li className="active"><a href="/editProfile">Edit Profile</a></li>
                                                         </ul>

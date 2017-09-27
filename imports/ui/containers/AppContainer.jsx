@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withHistory } from 'react-router-dom';
 import MainContainer from './MainContainer.jsx';
+
+import Logo from '../component/Logo';
+import Header from '../component/Header';
 /* 
 -AppContainer clase padre 
 -Funciones para validar los usuarios
@@ -11,10 +14,14 @@ export default class AppContainer extends Component {
     super(props);
     this.state = this.getMeteorData();
     this.logout = this.logout.bind(this);
+    
   }
 
   getMeteorData(){
-    return { isAuthenticated: Meteor.userId() !== null };
+    return {
+      onNewProject: false,
+      isAuthenticated: Meteor.userId() !== null 
+    };
   }
   /* llamamos a este metodo cdo se crea un componente y se inserta en el DOM */
   componentWillMount(){
@@ -39,28 +46,12 @@ export default class AppContainer extends Component {
         }
     });
   }
-/**
- * 
- * <nav className="navbar navbar-default navbar-static-top">
-          <div className="container">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">Auth App</a>
-            </div>
-            <div className="navbar-collapse">
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <a href="#" onClick={this.logout}>Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
- */
-  render(){
+    render(){
     return (
       <div>
-        
-        <MainContainer />
+        <Logo />
+        <Header />
+        <MainContainer getMeteorData={this.state.getMeteorData} />
       </div>
     );
   }
